@@ -2,4 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const email = "123@gmail.com";
+
+ReactDOM.render(<App email_address={email} />, document.getElementById("root"));
