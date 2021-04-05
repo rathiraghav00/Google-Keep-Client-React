@@ -16,12 +16,15 @@ function App() {
   const getAllNotes = () => {
       axios.get('http://localhost:3000/notes')
       .then((response) => {
-        console.log(response);
-        // var arr = JSON.parse(response.data);
-        // console.log(arr);
-        console.log(response.data);
+        var json_data = response.data;
+        var resultfinal = [];
+
+        for(var i in json_data)
+          resultfinal.push([json_data[i]]);
+
+        console.log(resultfinal);
         
-        setNotes(response.data);
+        setNotes(resultfinal);
       })
       .catch(error => {
         console.log("Error : ", error);
@@ -39,7 +42,7 @@ function App() {
     )
     .then((response) => {
         console.log(response);
-        setNotes(response.data);
+        // setNotes(response.data);
       })
       .catch(error => {
         console.log("Error : ", error);
@@ -78,8 +81,8 @@ function App() {
           <Note
             key={index}
             id={index}
-            title={noteItem.email}
-            content={noteItem.data}
+            title={noteItem[0].email}
+            content={noteItem[0].data}
             onDelete={deleteNote}
           />
         );
