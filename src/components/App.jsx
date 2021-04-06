@@ -3,7 +3,6 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import Keep1 from "./Keep1";
 import Keep from "./Keep";
 
 function App() {

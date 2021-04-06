@@ -9,14 +9,8 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 function Keep(props) {
   const [notes, setNotes] = useState([]);
 
-  function refreshPage() {
-    getAllNotes();
-    // setTimeout(window.location.reload(false), 2000);
-  }
-
   useEffect(() => {
     console.log("Use effect mein hun");
-    refreshPage();
   }, []);
 
   const getAllNotes = () => {
@@ -41,6 +35,7 @@ function Keep(props) {
   function addNote(newNote) {
     console.log("Yeh hai new note neeche");
     console.log(newNote);
+
     axios
       .post(URL + "notes", {
         email_id: props.email,
@@ -49,6 +44,7 @@ function Keep(props) {
       })
       .then((response) => {
         console.log(response);
+        getAllNotes();
         // setNotes(response.data);
       })
       .catch((error) => {
@@ -56,9 +52,6 @@ function Keep(props) {
       });
 
     console.log("post requuest hogayi");
-
-    //setTimeout(getAllNotes(), 2000);
-    refreshPage();
   }
 
   function deleteNote(uniqueid) {
@@ -70,13 +63,11 @@ function Keep(props) {
       })
       .then((response) => {
         console.log(" Suucessfully deleted ", uniqueid, response);
+        getAllNotes();
       })
       .catch((error) => {
         console.log("Error : ", error);
       });
-
-    getAllNotes();
-    //refreshPage();
   }
 
   return (
