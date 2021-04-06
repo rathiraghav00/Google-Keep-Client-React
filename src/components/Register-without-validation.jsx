@@ -9,10 +9,6 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
-  const [error, setError] = useState({
-    email: "",
-    password: "",
-  });
 
   function handleChangeEmail(event) {
     const { value } = event.target;
@@ -65,43 +61,6 @@ function Register(props) {
       });
   }
 
-  function validate() {
-    let email = props.email;
-    let password = props.password;
-
-    let errors = {};
-    let isValid = true;
-
-    if (!password) {
-      isValid = false;
-      errors["password"] = "Please enter a valid password";
-    }
-
-    if (!email) {
-      isValid = false;
-      errors["email"] = "Please enter a valid email address.";
-    }
-
-    if (typeof email !== "undefined") {
-      var pattern = new RegExp(
-        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
-      );
-
-      if (!pattern.test(email)) {
-        isValid = false;
-        errors["email"] = "Please enter a valid email address.";
-      }
-    }
-
-    console.log(errors, email, password);
-
-    setError(errors);
-
-    if (isValid) handleClick();
-
-    return isValid;
-  }
-
   function handleLogBtn(event) {
     event.preventDefault();
     props.setKeepPage(0);
@@ -123,7 +82,7 @@ function Register(props) {
         placeholder="Enter your Email ID"
         onChange={handleChangeEmail}
       ></input>
-      <div className="text-danger">{error.email}</div>
+
       <br />
       <br />
 
@@ -133,11 +92,11 @@ function Register(props) {
         placeholder="Enter your Password"
         onChange={handleChangePassword}
       ></input>
-      <div className="text-danger">{error.password}</div>
+
       <br />
       <br />
 
-      <Button variant="outline-warning" onClick={validate}>
+      <Button variant="outline-warning" onClick={handleClick}>
         Register
       </Button>
 
