@@ -163,9 +163,8 @@ function Login(props) {
                       </a>
                     </div>
                   </div>
-
-                  {setBtn && validate && <Route path="/" exact strict />}
                 </form>
+                {setBtn && validate && <Route path="/" exact strict />}
               </div>
             </div>
           </div>
