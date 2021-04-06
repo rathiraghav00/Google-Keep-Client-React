@@ -113,7 +113,7 @@ function Login(props) {
         <div className="container">
           <div className="row justify-content-center">
             <div clasNames="col-md-6 text-center mb-5">
-              <h2 className="heading-section">Login Page</h2>
+              <h2 className="heading-section"></h2>
             </div>
           </div>
           <div className="row justify-content-center">
@@ -122,7 +122,7 @@ function Login(props) {
                 <div className="icon d-flex align-items-center justify-content-center">
                   <span className="fa fa-user-o"></span>
                 </div>
-                <h3 className="text-center mb-4">Sign In</h3>
+                <h3 className="text-center mb-4">Log In</h3>
                 <form action="#" className="login-form">
                   <div className="form-group">
                     <input

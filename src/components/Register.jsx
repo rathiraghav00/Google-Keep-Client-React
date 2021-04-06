@@ -116,44 +116,112 @@ function Register(props) {
 
   return (
     <div>
-      <Header status="Registration Page" />
-      <input
-        type="text"
-        value={props.email}
-        placeholder="Enter your Email ID"
-        onChange={handleChangeEmail}
-      ></input>
-      <div className="text-danger">{error.email}</div>
-      <br />
-      <br />
+      <section className="ftco-section">
+        <Header />
+        <div className="container">
+          <div className="row justify-content-center">
+            <div clasNames="col-md-6 text-center mb-5">
+              <h2 className="heading-section"></h2>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-md-7 col-lg-5">
+              <div className="login-wrap p-4 p-md-5">
+                <div className="icon d-flex align-items-center justify-content-center">
+                  <span className="fa fa-user-o"></span>
+                </div>
+                <h3 className="text-center mb-4">Register</h3>
+                <form action="#" className="login-form">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control rounded-left"
+                      required
+                      value={props.email}
+                      placeholder="Enter your Email ID"
+                      onChange={handleChangeEmail}
+                    />
+                    <div className="text-danger">{error.email}</div>
+                  </div>
 
-      <input
-        type="text"
-        value={props.password}
-        placeholder="Enter your Password"
-        onChange={handleChangePassword}
-      ></input>
-      <div className="text-danger">{error.password}</div>
-      <br />
-      <br />
+                  <div className="form-group d-flex">
+                    <input
+                      type="password"
+                      className="form-control rounded-left"
+                      required
+                      value={props.password}
+                      placeholder="Enter your password"
+                      onChange={handleChangePassword}
+                    />
+                    <div className="text-danger">{error.password}</div>
+                  </div>
+                  <div className="form-group">
+                    <button
+                      type="submit"
+                      className="form-control btn btn-primary rounded submit px-3"
+                      onClick={validate}
+                    >
+                      Register
+                    </button>
+                  </div>
 
-      <Button variant="outline-warning" onClick={validate}>
-        Register
-      </Button>
+                  <div className="form-group d-md-flex">
+                    <div className="w-50"></div>
+                    <div className="w-50 text-md-right">
+                      <a href="#" onClick={handleLogBtn}>
+                        Want to Login?
+                      </a>
+                    </div>
+                  </div>
+                </form>
+                {setBtn && validate && <Route path="/" exact strict />}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </section>
 
-      <br />
-      <br />
+      {/* <div>
+        <Header status="Registration Page" />
+        <input
+          type="text"
+          value={props.email}
+          placeholder="Enter your Email ID"
+          onChange={handleChangeEmail}
+        ></input>
+        <div className="text-danger">{error.email}</div>
+        <br />
+        <br />
 
-      <Button variant="link" onClick={handleLogBtn}>
-        Already have an account ? Go to Login Page
-      </Button>
+        <input
+          type="text"
+          value={props.password}
+          placeholder="Enter your Password"
+          onChange={handleChangePassword}
+        ></input>
+        <div className="text-danger">{error.password}</div>
+        <br />
+        <br />
 
-      <br />
-      <br />
+        <Button variant="outline-warning" onClick={validate}>
+          Register
+        </Button>
 
-      {setBtn && <Route path="/" exact strict />}
+        <br />
+        <br />
 
-      <Footer />
+        <Button variant="link" onClick={handleLogBtn}>
+          Already have an account ? Go to Login Page
+        </Button>
+
+        <br />
+        <br />
+
+        {setBtn && <Route path="/" exact strict />}
+
+        <Footer />
+      </div> */}
     </div>
   );
 }

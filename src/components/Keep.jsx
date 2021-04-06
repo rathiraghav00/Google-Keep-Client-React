@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -27,6 +27,10 @@ function Keep(props) {
         console.log("Error : ", error);
       });
   };
+
+  useEffect(() => {
+    getAllNotes();
+  }, []);
 
   function addNote(newNote) {
     console.log("Yeh hai new note neeche");
