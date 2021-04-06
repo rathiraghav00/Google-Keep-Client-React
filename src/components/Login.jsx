@@ -27,7 +27,8 @@ function Login(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -67,7 +68,8 @@ function Login(props) {
     console.log("Going to Registration Page");
   }
 
-  function validate() {
+  function validate(event) {
+    event.preventDefault();
     console.log("Login Button Clicked");
 
     let email = props.email;
@@ -101,7 +103,7 @@ function Login(props) {
 
     setError(errors);
 
-    if (isValid) handleClick();
+    if (isValid) handleClick(event);
 
     return isValid;
   }

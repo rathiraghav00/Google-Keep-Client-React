@@ -26,7 +26,9 @@ function Register(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
+
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -65,7 +67,9 @@ function Register(props) {
       });
   }
 
-  function validate() {
+  function validate(event) {
+    event.preventDefault();
+
     let email = props.email;
     let password = props.password;
 
@@ -97,7 +101,7 @@ function Register(props) {
 
     setError(errors);
 
-    if (isValid) handleClick();
+    if (isValid) handleClick(event);
 
     return isValid;
   }
