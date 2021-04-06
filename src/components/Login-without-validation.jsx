@@ -1,8 +1,8 @@
 import { Divider } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 const URL = "https://fierce-shore-80067.herokuapp.com/";
