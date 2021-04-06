@@ -1,7 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import App from "./components/App";
 
-const email = "123@gmail.com";
-
-ReactDOM.render(<App email_address={email} />, document.getElementById("root"));
+ReactDOM.render(
+  <div>
+    <Router>
+      <App />
+    </Router>
+  </div>,
+  document.getElementById("root")
+);
