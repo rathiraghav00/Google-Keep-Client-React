@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import axios from "axios";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
@@ -20,13 +21,26 @@ function Register(props) {
   }
 
   function handleClick() {
-    props.setKeepPage(1);
-    props.setLoginPage(0);
-    props.setRegPage(0);
+    axios
+      .post("http://localhost:3000/auth", {
+        email_id: props.email,
+        password: props.password,
+      })
+      .then((response) => {
+        console.log("Successfully added new user");
 
-    console.log("I have been clicked");
+        props.setKeepPage(props.email);
+        props.setLoginPage(0);
+        props.setRegPage(0);
 
-    setBtn(1);
+        console.log("User Added");
+
+        setBtn(1);
+      })
+      .catch((error) => {
+        console.log("Error : ", error);
+        alert("There was some error while registering you!");
+      });
   }
 
   return (
