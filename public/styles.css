@@ -1,3 +1,5 @@
+import "react-bootstrap/dist/react-bootstrap.min.js";
+
 * {
   padding: 0;
   margin: 0;

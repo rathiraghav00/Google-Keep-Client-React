@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
@@ -60,7 +61,9 @@ function Register(props) {
         onChange={handleChangePassword}
       ></input>
 
-      <button onClick={handleClick}>Click Me</button>
+      <Button variant="link" onClick={handleClick}>
+        Register - Submit
+      </Button>
 
       {setBtn && <Route path="/" exact strict />}
 

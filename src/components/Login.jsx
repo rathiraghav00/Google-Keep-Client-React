@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 function Login(props) {
   const [btn, setBtn] = useState(0);
@@ -56,27 +57,42 @@ function Login(props) {
   return (
     <div>
       <Header />
-      <input
-        type="text"
-        value={props.email}
-        placeholder="Pls enter your Email ID"
-        onChange={handleChangeEmail}
-      ></input>
+      <div style={{ margin: "10% ", align: "center" }}>
+        <br />
+        <input
+          className="form-group col-md-6"
+          type="text"
+          value={props.email}
+          placeholder="Pls enter your Email ID"
+          onChange={handleChangeEmail}
+        ></input>
 
-      <input
-        type="text"
-        value={props.password}
-        placeholder="Pls enter your Email ID"
-        onChange={handleChangePassword}
-      ></input>
+        <br />
 
-      <button onClick={handleClick}>Click Me</button>
+        <input
+          className="form-group col-md-6"
+          type="text"
+          align="center"
+          value={props.password}
+          placeholder="Pls enter your Email ID"
+          onChange={handleChangePassword}
+        ></input>
 
-      <button onClick={handleRegBtn}>Register an account</button>
+        <br />
 
-      {setBtn && <Route path="/" exact strict />}
+        <Button variant="outline-warning" onClick={handleClick}>
+          Login
+        </Button>
 
-      <h1>Hello Login</h1>
+        <br />
+
+        <Button variant="link" onClick={handleRegBtn}>
+          Don't have a account ? Register Here
+        </Button>
+
+        {setBtn && <Route path="/" exact strict />}
+      </div>
+
       <Footer />
     </div>
   );
