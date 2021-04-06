@@ -10,11 +10,6 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 function Login(props) {
   const [btn, setBtn] = useState(0);
 
-  const [error, setError] = useState({
-    email: "",
-    password: "",
-  });
-
   function handleChangeEmail(event) {
     const { value } = event.target;
     console.log("Email", value);
@@ -27,7 +22,8 @@ function Login(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -67,43 +63,6 @@ function Login(props) {
     console.log("Going to Registration Page");
   }
 
-  function validate() {
-    let email = props.email;
-    let password = props.password;
-
-    let errors = {};
-    let isValid = true;
-
-    if (!password) {
-      isValid = false;
-      errors["password"] = "Please enter a valid password";
-    }
-
-    if (!email) {
-      isValid = false;
-      errors["email"] = "Please enter a valid email address.";
-    }
-
-    if (typeof email !== "undefined") {
-      var pattern = new RegExp(
-        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
-      );
-
-      if (!pattern.test(email)) {
-        isValid = false;
-        errors["email"] = "Please enter a valid email address.";
-      }
-    }
-
-    console.log(errors, email, password);
-
-    setError(errors);
-
-    if (isValid) handleClick();
-
-    return isValid;
-  }
-
   return (
     <div>
       <Header status="Login Page" />
@@ -117,8 +76,6 @@ function Login(props) {
           onChange={handleChangeEmail}
         ></input>
 
-        <div className="text-danger">{error.email}</div>
-
         <br />
 
         <input
@@ -130,11 +87,9 @@ function Login(props) {
           onChange={handleChangePassword}
         ></input>
 
-        <div className="text-danger">{error.password}</div>
-
         <br />
 
-        <Button variant="outline-warning" onClick={validate}>
+        <Button variant="outline-warning" onClick={handleClick}>
           Login
         </Button>
 
@@ -144,7 +99,7 @@ function Login(props) {
           Don't have an account ? Register Here
         </Button>
 
-        {setBtn && validate && <Route path="/" exact strict />}
+        {setBtn && <Route path="/" exact strict />}
       </div>
 
       <Footer />

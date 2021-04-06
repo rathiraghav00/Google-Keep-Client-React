@@ -27,7 +27,9 @@ function Login(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
+
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -95,11 +97,7 @@ function Login(props) {
       }
     }
 
-    console.log(errors, email, password);
-
     setError(errors);
-
-    if (isValid) handleClick();
 
     return isValid;
   }
@@ -134,7 +132,7 @@ function Login(props) {
 
         <br />
 
-        <Button variant="outline-warning" onClick={validate}>
+        <Button variant="outline-warning" onClick={handleClick}>
           Login
         </Button>
 
