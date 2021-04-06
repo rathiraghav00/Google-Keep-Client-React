@@ -150,7 +150,7 @@ function Login(props) {
                   <div className="form-group">
                     <button
                       type="submit"
-                      className="form-control btn btn-primary rounded submit px-3"
+                      className="form-control btn btn-outline-primary rounded submit px-3"
                       onClick={validate}
                     >
                       Login
