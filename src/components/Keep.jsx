@@ -32,6 +32,10 @@ function Keep(props) {
       });
   };
 
+  useEffect(() => {
+    getAllNotes();
+  }, []);
+
   function addNote(newNote) {
     console.log("Yeh hai new note neeche");
     console.log(newNote);

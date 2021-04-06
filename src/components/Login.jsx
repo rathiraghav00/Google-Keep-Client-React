@@ -27,7 +27,8 @@ function Login(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -67,7 +68,10 @@ function Login(props) {
     console.log("Going to Registration Page");
   }
 
-  function validate() {
+  function validate(event) {
+    event.preventDefault();
+    console.log("Login Button Clicked");
+
     let email = props.email;
     let password = props.password;
 
@@ -99,14 +103,80 @@ function Login(props) {
 
     setError(errors);
 
-    if (isValid) handleClick();
+    if (isValid) handleClick(event);
 
     return isValid;
   }
 
   return (
     <div>
-      <Header status="Login Page" />
+      <section className="ftco-section">
+        <Header />
+        <div className="container">
+          <div className="row justify-content-center">
+            <div clasNames="col-md-6 text-center mb-5">
+              <h2 className="heading-section"></h2>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-md-7 col-lg-5">
+              <div className="login-wrap p-4 p-md-5">
+                <div className="icon d-flex align-items-center justify-content-center">
+                  <span className="fa fa-user-o"></span>
+                </div>
+                <h3 className="text-center mb-4">Log In</h3>
+                <form action="#" className="login-form">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control rounded-left"
+                      required
+                      value={props.email}
+                      placeholder="Enter your Email ID"
+                      onChange={handleChangeEmail}
+                    />
+                    <div className="text-danger">{error.email}</div>
+                  </div>
+
+                  <div className="form-group d-flex">
+                    <input
+                      type="password"
+                      className="form-control rounded-left"
+                      required
+                      value={props.password}
+                      placeholder="Enter your password"
+                      onChange={handleChangePassword}
+                    />
+                    <div className="text-danger">{error.password}</div>
+                  </div>
+                  <div className="form-group">
+                    <button
+                      type="submit"
+                      className="form-control btn btn-outline-primary rounded submit px-3"
+                      onClick={validate}
+                    >
+                      Login
+                    </button>
+                  </div>
+
+                  <div className="form-group d-md-flex">
+                    <div className="w-50"></div>
+                    <div className="w-50 text-md-right">
+                      <a href="#" onClick={handleRegBtn}>
+                        Want to register?
+                      </a>
+                    </div>
+                  </div>
+                </form>
+                {setBtn && validate && <Route path="/" exact strict />}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </section>
+
+      {/* 
       <div style={{ margin: "10% ", align: "center" }}>
         <br />
         <input
@@ -147,9 +217,63 @@ function Login(props) {
         {setBtn && validate && <Route path="/" exact strict />}
       </div>
 
-      <Footer />
+      */}
     </div>
   );
 }
 
 export default Login;
+
+{
+  /* <section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Login Page</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <div class="login-wrap p-4 p-md-5">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="fa fa-user-o"></span>
+          </div>
+          <h3 class="text-center mb-4">Sign In</h3>
+          <form action="#" class="login-form">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control rounded-left"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="form-group d-flex">
+              <input
+                type="password"
+                class="form-control rounded-left"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="form-control btn btn-primary rounded submit px-3"
+              >
+                Login
+              </button>
+            </div>
+            <div class="form-group d-md-flex">
+              <div class="w-50"></div>
+              <div class="w-50 text-md-right">
+                <a href="#">Forgot Password</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>; */
+}

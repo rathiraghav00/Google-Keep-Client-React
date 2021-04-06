@@ -5,7 +5,8 @@ function Footer() {
   return (
     <footer>
       <p>
-        Copyright ⓒ {year}. Please leave a feedback at rathi.raghav00@gmail.com
+        Copyright ⓒ {year}. Please leave a feedback at
+        mindYourOwnBusiness@gmail.com
       </p>
     </footer>
   );
