@@ -59,14 +59,14 @@ function Login(props) {
 
   return (
     <div>
-      <Header />
+      <Header status="Login Page" />
       <div style={{ margin: "10% ", align: "center" }}>
         <br />
         <input
           className="form-group col-md-6"
           type="text"
           value={props.email}
-          placeholder="Pls enter your Email ID"
+          placeholder="Enter your Email ID"
           onChange={handleChangeEmail}
         ></input>
 
@@ -77,7 +77,7 @@ function Login(props) {
           type="text"
           align="center"
           value={props.password}
-          placeholder="Pls enter your Email ID"
+          placeholder="Enter your password"
           onChange={handleChangePassword}
         ></input>
 

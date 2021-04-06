@@ -47,18 +47,18 @@ function Register(props) {
 
   return (
     <div>
-      <Header />
+      <Header status="Registration Page" />
       <input
         type="text"
         value={props.email}
-        placeholder="Pls enter your Email ID"
+        placeholder="Enter your Email ID"
         onChange={handleChangeEmail}
       ></input>
 
       <input
         type="text"
         value={props.password}
-        placeholder="Pls enter your Email ID"
+        placeholder="Enter your Email ID"
         onChange={handleChangePassword}
       ></input>
 
@@ -68,7 +68,6 @@ function Register(props) {
 
       {setBtn && <Route path="/" exact strict />}
 
-      <h1>Hello Register</h1>
       <Footer />
     </div>
   );
