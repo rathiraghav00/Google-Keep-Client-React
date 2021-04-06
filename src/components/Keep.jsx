@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -8,10 +8,6 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Keep(props) {
   const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    console.log("Use effect mein hun");
-  }, []);
 
   const getAllNotes = () => {
     console.log(props.email);
@@ -43,6 +39,7 @@ function Keep(props) {
         content: newNote.content,
       })
       .then((response) => {
+        console.log("yeh hai add note ka response");
         console.log(response);
         getAllNotes();
         // setNotes(response.data);

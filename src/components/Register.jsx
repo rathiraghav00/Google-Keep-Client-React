@@ -24,25 +24,53 @@ function Register(props) {
 
   function handleClick() {
     axios
-      .post(URL + "auth", {
-        email_id: props.email,
-        password: props.password,
-      })
+      .get(URL + "auth/" + props.email)
       .then((response) => {
-        console.log("Successfully added new user");
+        console.log(response.data);
 
-        props.setKeepPage(props.email);
-        props.setLoginPage(0);
-        props.setRegPage(0);
+        if (response.data.password) {
+          alert(
+            "Email ID already exists in the database. Please Login or select another Email ID"
+          );
+        } else {
+          axios
+            .post(URL + "auth", {
+              email_id: props.email,
+              password: props.password,
+            })
+            .then((response) => {
+              console.log("Successfully added new user");
 
-        console.log("User Added");
+              props.setKeepPage(props.email);
+              props.setLoginPage(0);
+              props.setRegPage(0);
+              props.setPassword("");
 
-        setBtn(1);
+              console.log("User Added");
+
+              setBtn(1);
+            })
+            .catch((error) => {
+              console.log("Error : ", error);
+              alert("There was some error while registering you!");
+            });
+        }
       })
       .catch((error) => {
         console.log("Error : ", error);
-        alert("There was some error while registering you!");
       });
+  }
+
+  function handleLogBtn(event) {
+    event.preventDefault();
+    props.setKeepPage(0);
+    props.setLoginPage(1);
+    props.setRegPage(0);
+    props.setEmail("");
+    props.setPassword("");
+    setBtn(1);
+
+    console.log("Going to Login Page");
   }
 
   return (
@@ -55,16 +83,32 @@ function Register(props) {
         onChange={handleChangeEmail}
       ></input>
 
+      <br />
+      <br />
+
       <input
         type="text"
         value={props.password}
-        placeholder="Enter your Email ID"
+        placeholder="Enter your Password"
         onChange={handleChangePassword}
       ></input>
 
-      <Button variant="link" onClick={handleClick}>
-        Register - Submit
+      <br />
+      <br />
+
+      <Button variant="outline-warning" onClick={handleClick}>
+        Register
       </Button>
+
+      <br />
+      <br />
+
+      <Button variant="link" onClick={handleLogBtn}>
+        Already have an account ? Go to Login Page
+      </Button>
+
+      <br />
+      <br />
 
       {setBtn && <Route path="/" exact strict />}
 

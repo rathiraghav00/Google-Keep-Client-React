@@ -33,12 +33,17 @@ function Login(props) {
           props.setKeepPage(props.email);
           props.setLoginPage(0);
           props.setRegPage(0);
+          props.setPassword("");
 
           console.log("User Authenticated");
 
           setBtn(1);
+        } else if (response.data.password) {
+          alert("Wrong Password !!");
         } else {
-          alert("Wrong UserName or Password!. Pls check again");
+          alert(
+            "Email ID doesnot exist in the database. Please click on the Register Button"
+          );
         }
       })
       .catch((error) => {
@@ -51,10 +56,11 @@ function Login(props) {
     props.setKeepPage(0);
     props.setLoginPage(0);
     props.setRegPage(1);
-
-    console.log("I have been clicked");
-
+    props.setEmail("");
+    props.setPassword("");
     setBtn(1);
+
+    console.log("Going to Registration Page");
   }
 
   return (
