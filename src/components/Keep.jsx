@@ -19,8 +19,9 @@ function Keep(props) {
   }, []);
 
   const getAllNotes = () => {
+    console.log(props.email);
     axios
-      .get("http://localhost:3000/notes")
+      .get("http://localhost:3000/notes/" + props.email)
       .then((response) => {
         var json_data = response.data;
         var resultfinal = [];
@@ -41,7 +42,7 @@ function Keep(props) {
     console.log(newNote);
     axios
       .post("http://localhost:3000/notes", {
-        email_id: props.email_address,
+        email_id: props.email,
         title: newNote.title,
         content: newNote.content,
       })

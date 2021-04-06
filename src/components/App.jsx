@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Keep1 from "./Keep1";
+import Keep from "./Keep";
 
 function App() {
   const [loginPage, setLoginPage] = useState(1);
@@ -40,7 +41,7 @@ function App() {
               setPassword={setPassword}
             />
           ) : (
-            <Keep1
+            <Keep
               email={email}
               password={password}
               setLoginPage={setLoginPage}
