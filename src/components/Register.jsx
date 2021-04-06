@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+const URL = "http://fierce-shore-80067.herokuapp.com/";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
@@ -23,7 +24,7 @@ function Register(props) {
 
   function handleClick() {
     axios
-      .post("http://localhost:3000/auth", {
+      .post(URL + "auth", {
         email_id: props.email,
         password: props.password,
       })

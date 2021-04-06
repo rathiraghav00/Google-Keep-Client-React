@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+const URL = "http://fierce-shore-80067.herokuapp.com/";
 
 function Login(props) {
   const [btn, setBtn] = useState(0);
@@ -23,7 +24,7 @@ function Login(props) {
 
   function handleClick() {
     axios
-      .get("http://localhost:3000/auth/" + props.email)
+      .get(URL + "auth/" + props.email)
       .then((response) => {
         console.log(response.data);
 

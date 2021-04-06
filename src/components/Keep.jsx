@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
+const URL = "http://fierce-shore-80067.herokuapp.com/";
 
 function Keep(props) {
   const [notes, setNotes] = useState([]);
@@ -21,7 +22,7 @@ function Keep(props) {
   const getAllNotes = () => {
     console.log(props.email);
     axios
-      .get("http://localhost:3000/notes/" + props.email)
+      .get(URL + "notes/" + props.email)
       .then((response) => {
         var json_data = response.data;
         var resultfinal = [];
@@ -41,7 +42,7 @@ function Keep(props) {
     console.log("Yeh hai new note neeche");
     console.log(newNote);
     axios
-      .post("http://localhost:3000/notes", {
+      .post(URL + "notes", {
         email_id: props.email,
         title: newNote.title,
         content: newNote.content,
@@ -62,7 +63,7 @@ function Keep(props) {
 
   function deleteNote(uniqueid) {
     axios
-      .delete("http://localhost:3000/notes/" + uniqueid, {
+      .delete(URL + "notes/" + uniqueid, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
