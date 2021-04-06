@@ -106,6 +106,7 @@ function Login(props) {
 
   return (
     <div>
+      <Header />
       <section class="ftco-section">
         <div class="container">
           <div class="row justify-content-center">
@@ -125,40 +126,53 @@ function Login(props) {
                     <input
                       type="text"
                       class="form-control rounded-left"
-                      placeholder="Username"
                       required
+                      value={props.email}
+                      placeholder="Enter your Email ID"
+                      onChange={handleChangeEmail}
                     />
+                    <div className="text-danger">{error.email}</div>
                   </div>
+
                   <div class="form-group d-flex">
                     <input
                       type="password"
                       class="form-control rounded-left"
-                      placeholder="Password"
                       required
+                      value={props.password}
+                      placeholder="Enter your password"
+                      onChange={handleChangePassword}
                     />
+                    <div className="text-danger">{error.password}</div>
                   </div>
                   <div class="form-group">
                     <button
                       type="submit"
                       class="form-control btn btn-primary rounded submit px-3"
+                      onClick={validate}
                     >
                       Login
                     </button>
                   </div>
+
                   <div class="form-group d-md-flex">
                     <div class="w-50"></div>
                     <div class="w-50 text-md-right">
-                      <a href="#">Forgot Password</a>
+                      <a href="#" onClick={handleRegBtn}>
+                        Want to register?
+                      </a>
                     </div>
                   </div>
+
+                  {setBtn && validate && <Route path="/" exact strict />}
                 </form>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* <Header status="Login Page" />
+      <Footer />
+      {/* 
       <div style={{ margin: "10% ", align: "center" }}>
         <br />
         <input
@@ -199,7 +213,7 @@ function Login(props) {
         {setBtn && validate && <Route path="/" exact strict />}
       </div>
 
-      <Footer /> */}
+      */}
     </div>
   );
 }
