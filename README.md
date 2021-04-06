@@ -9,3 +9,4 @@ Todo:
 4. Update footer, add date to footer
 5. Add a whole lot of CSS and Bootstrap
 6. Logout Button
+7. Add env file
