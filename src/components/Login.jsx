@@ -68,6 +68,8 @@ function Login(props) {
   }
 
   function validate() {
+    console.log("Login Button Clicked");
+
     let email = props.email;
     let password = props.password;
 
@@ -106,26 +108,26 @@ function Login(props) {
 
   return (
     <div>
-      <Header />
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
-              <h2 class="heading-section">Login Page</h2>
+      <section className="ftco-section">
+        <Header />
+        <div className="container">
+          <div className="row justify-content-center">
+            <div clasNames="col-md-6 text-center mb-5">
+              <h2 className="heading-section">Login Page</h2>
             </div>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
-              <div class="login-wrap p-4 p-md-5">
-                <div class="icon d-flex align-items-center justify-content-center">
-                  <span class="fa fa-user-o"></span>
+          <div className="row justify-content-center">
+            <div className="col-md-7 col-lg-5">
+              <div className="login-wrap p-4 p-md-5">
+                <div className="icon d-flex align-items-center justify-content-center">
+                  <span className="fa fa-user-o"></span>
                 </div>
-                <h3 class="text-center mb-4">Sign In</h3>
-                <form action="#" class="login-form">
-                  <div class="form-group">
+                <h3 className="text-center mb-4">Sign In</h3>
+                <form action="#" className="login-form">
+                  <div className="form-group">
                     <input
                       type="text"
-                      class="form-control rounded-left"
+                      className="form-control rounded-left"
                       required
                       value={props.email}
                       placeholder="Enter your Email ID"
@@ -134,10 +136,10 @@ function Login(props) {
                     <div className="text-danger">{error.email}</div>
                   </div>
 
-                  <div class="form-group d-flex">
+                  <div className="form-group d-flex">
                     <input
                       type="password"
-                      class="form-control rounded-left"
+                      className="form-control rounded-left"
                       required
                       value={props.password}
                       placeholder="Enter your password"
@@ -145,19 +147,19 @@ function Login(props) {
                     />
                     <div className="text-danger">{error.password}</div>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <button
                       type="submit"
-                      class="form-control btn btn-primary rounded submit px-3"
+                      className="form-control btn btn-primary rounded submit px-3"
                       onClick={validate}
                     >
                       Login
                     </button>
                   </div>
 
-                  <div class="form-group d-md-flex">
-                    <div class="w-50"></div>
-                    <div class="w-50 text-md-right">
+                  <div className="form-group d-md-flex">
+                    <div className="w-50"></div>
+                    <div className="w-50 text-md-right">
                       <a href="#" onClick={handleRegBtn}>
                         Want to register?
                       </a>
@@ -169,8 +171,9 @@ function Login(props) {
             </div>
           </div>
         </div>
+        <Footer />
       </section>
-      <Footer />
+
       {/* 
       <div style={{ margin: "10% ", align: "center" }}>
         <br />
