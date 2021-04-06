@@ -6,8 +6,8 @@ import Register from "./Register";
 import Keep1 from "./Keep1";
 
 function App() {
-  const [loginPage, setLoginPage] = useState(0);
-  const [regPage, setRegPage] = useState(1);
+  const [loginPage, setLoginPage] = useState(1);
+  const [regPage, setRegPage] = useState(0);
   const [keepPage, setKeepPage] = useState(0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

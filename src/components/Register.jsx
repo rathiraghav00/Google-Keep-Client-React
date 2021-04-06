@@ -1,6 +1,8 @@
 import { Divider } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
@@ -29,6 +31,7 @@ function Register(props) {
 
   return (
     <div>
+      <Header />
       <input
         type="text"
         value={props.email}
@@ -48,6 +51,7 @@ function Register(props) {
       {setBtn && <Route path="/" exact strict />}
 
       <h1>Hello Register</h1>
+      <Footer />
     </div>
   );
 }
