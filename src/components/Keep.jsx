@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
-const URL = "http://fierce-shore-80067.herokuapp.com/";
+const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Keep(props) {
   const [notes, setNotes] = useState([]);

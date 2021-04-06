@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-const URL = "http://fierce-shore-80067.herokuapp.com/";
+const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Login(props) {
   const [btn, setBtn] = useState(0);
