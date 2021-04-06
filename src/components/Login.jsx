@@ -22,7 +22,8 @@ function Login(props) {
     props.setPassword(value);
   }
 
-  function handleClick() {
+  function handleClick(event) {
+    event.preventDefault();
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
@@ -45,7 +46,8 @@ function Login(props) {
       });
   }
 
-  function handleRegBtn() {
+  function handleRegBtn(event) {
+    event.preventDefault();
     props.setKeepPage(0);
     props.setLoginPage(0);
     props.setRegPage(1);
