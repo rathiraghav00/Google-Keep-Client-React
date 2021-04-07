@@ -11,7 +11,7 @@ function App() {
   let em = localStorage.getItem("email") || "";
   let pass = localStorage.getItem("password") || "";
 
-  if (r == 0 && k == 0) {
+  if (r === 0 && k === 0) {
     l = 1;
   } else {
     l = 0;
@@ -45,7 +45,7 @@ function App() {
         path="/"
         exact
         strict
-        render={() =>
+        render={({ match }) =>
           loginPage ? (
             <Login
               email={email}
