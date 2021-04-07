@@ -18,12 +18,23 @@ function Register(props) {
     const { value } = event.target;
     console.log("Email", value);
     props.setEmail(value);
+
+    localStorage.setItem("loginPage", 0);
+    localStorage.setItem("regPage", 1);
+    localStorage.setItem("keepPage", 0);
+    localStorage.setItem("email", props.email);
+    localStorage.setItem("password", props.password);
   }
 
   function handleChangePassword(event) {
     const { value } = event.target;
     console.log("Password", value);
     props.setPassword(value);
+    localStorage.setItem("loginPage", 0);
+    localStorage.setItem("regPage", 1);
+    localStorage.setItem("keepPage", 0);
+    localStorage.setItem("email", props.email);
+    localStorage.setItem("password", props.password);
   }
 
   function handleClick(event) {

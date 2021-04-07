@@ -5,12 +5,58 @@ import Login from "./Login";
 import Register from "./Register";
 import Keep from "./Keep";
 
+// localStorage.clear();
+
 function App() {
-  const [loginPage, setLoginPage] = useState(1);
+  const [loginPage, setLoginPage] = useState(0);
   const [regPage, setRegPage] = useState(0);
   const [keepPage, setKeepPage] = useState(0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // localStorage.setItem("loginPage", loginPage);
+  // localStorage.setItem("regPage", regPage);
+  // localStorage.setItem("keepPage", keepPage);
+  // localStorage.setItem("email", email);
+  // localStorage.setItem("password", password);
+
+  useEffect(() => {
+    console.log("Inside App.jsx - UseEffect");
+
+    let l = parseInt(localStorage.getItem("loginPage")) || 1;
+    setLoginPage(l);
+    console.log("Login Page", l);
+
+    let r = parseInt(localStorage.getItem("regPage")) || 0;
+    setRegPage(r);
+    console.log("Reg Page", r);
+
+    let k = parseInt(localStorage.getItem("keepPage")) || 0;
+    setKeepPage(k);
+    console.log("Keep Page", k);
+
+    let em = localStorage.getItem("email") || "";
+    setEmail(em);
+    console.log("Email", em);
+
+    let pass = localStorage.getItem("password") || "";
+    setPassword(pass);
+    console.log("Password", pass);
+
+    if (r == 0 && k == 0) {
+      l = 1;
+    } else {
+      l = 0;
+    }
+
+    setLoginPage(l);
+
+    console.log("Login Page", l);
+
+    console.log("Login Page", loginPage);
+    console.log("Reg Page", regPage);
+    console.log("Keep Page", keepPage);
+  }, []);
 
   return (
     <div>

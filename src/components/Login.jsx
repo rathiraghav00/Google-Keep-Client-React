@@ -8,6 +8,13 @@ import { Button } from "react-bootstrap";
 const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Login(props) {
+  useEffect(() => {
+    console.log("Inside Login Page");
+    console.log("Login Page", props.loginPage);
+    console.log("Reg Page", props.regPage);
+    console.log("Keep Page", props.keepPage);
+  }, []);
+
   const [btn, setBtn] = useState(0);
 
   const [error, setError] = useState({
@@ -18,13 +25,31 @@ function Login(props) {
   function handleChangeEmail(event) {
     const { value } = event.target;
     console.log("Email", value);
+
     props.setEmail(value);
+
+    localStorage.setItem("loginPage", 1);
+    localStorage.setItem("regPage", 0);
+    localStorage.setItem("keepPage", 0);
+    localStorage.setItem("email", value);
+    localStorage.setItem("password", props.password);
+
+    console.log("New email and password", value, props.password);
   }
 
   function handleChangePassword(event) {
     const { value } = event.target;
     console.log("Password", value);
     props.setPassword(value);
+    console.log(value);
+
+    localStorage.setItem("loginPage", 1);
+    localStorage.setItem("regPage", 0);
+    localStorage.setItem("keepPage", 0);
+    localStorage.setItem("email", props.email);
+    localStorage.setItem("password", value);
+
+    console.log("New email and password", props.email, value);
   }
 
   function handleClick(event) {
@@ -36,9 +61,13 @@ function Login(props) {
 
         if (response.data.password === props.password) {
           props.setKeepPage(props.email);
+          localStorage.setItem("email", props.email);
           props.setLoginPage(0);
+          localStorage.setItem("loginPage", 0);
           props.setRegPage(0);
+          localStorage.setItem("password", "");
           props.setPassword("");
+          localStorage.setItem("keepPage", 1);
 
           console.log("User Authenticated");
 
@@ -78,12 +107,12 @@ function Login(props) {
     let errors = {};
     let isValid = true;
 
-    if (!password) {
+    if (!password || password == null) {
       isValid = false;
       errors["password"] = "Please enter a valid password";
     }
 
-    if (!email) {
+    if (!email || email == null) {
       isValid = false;
       errors["email"] = "Please enter a valid email address.";
     }
@@ -114,7 +143,7 @@ function Login(props) {
         <Header />
         <div className="container">
           <div className="row justify-content-center">
-            <div clasNames="col-md-6 text-center mb-5">
+            <div className="col-md-6 text-center mb-5">
               <h2 className="heading-section"></h2>
             </div>
           </div>
