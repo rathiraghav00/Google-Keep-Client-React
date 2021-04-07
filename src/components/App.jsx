@@ -24,13 +24,6 @@ function App() {
   const [email, setEmail] = useState(em);
   const [password, setPassword] = useState(pass);
 
-  // localStorage.setItem("loginPage", loginPage);
-  // localStorage.setItem("regPage", regPage);
-  // localStorage.setItem("keepPage", keepPage);
-  // localStorage.setItem("email", email);
-  // localStorage.setItem("password", password);
-  // Hello
-
   useEffect(() => {
     console.log("Inside App.jsx - UseEffect");
 
