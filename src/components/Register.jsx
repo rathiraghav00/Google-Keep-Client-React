@@ -9,32 +9,43 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
+
   const [error, setError] = useState({
     email: "",
     password: "",
   });
 
+  // useEffect(() => {
+  //   console.log("Inside Register Page");
+  //   // localStorage.setItem("loginPage", 1);
+  //   // localStorage.setItem("regPage", 0);
+  //   // localStorage.setItem("keepPage", 0);
+  //   localStorage.setItem("email", props.email);
+  //   localStorage.setItem("password", props.password);
+  // }, [
+  //   props.loginPage,
+  //   props.regPage,
+  //   props.keepPage,
+  //   props.password,
+  //   props.email,
+  // ]);
+
   function handleChangeEmail(event) {
     const { value } = event.target;
     console.log("Email", value);
     props.setEmail(value);
-
-    localStorage.setItem("loginPage", 0);
-    localStorage.setItem("regPage", 1);
-    localStorage.setItem("keepPage", 0);
-    localStorage.setItem("email", props.email);
-    localStorage.setItem("password", props.password);
+    props.setLoginPage(0);
+    props.setRegPage(1);
+    props.setKeepPage(0);
   }
 
   function handleChangePassword(event) {
     const { value } = event.target;
     console.log("Password", value);
     props.setPassword(value);
-    localStorage.setItem("loginPage", 0);
-    localStorage.setItem("regPage", 1);
-    localStorage.setItem("keepPage", 0);
-    localStorage.setItem("email", props.email);
-    localStorage.setItem("password", props.password);
+    props.setLoginPage(0);
+    props.setRegPage(1);
+    props.setKeepPage(0);
   }
 
   function handleClick(event) {
@@ -196,47 +207,6 @@ function Register(props) {
         </div>
         <Footer />
       </section>
-
-      {/* <div>
-        <Header status="Registration Page" />
-        <input
-          type="text"
-          value={props.email}
-          placeholder="Enter your Email ID"
-          onChange={handleChangeEmail}
-        ></input>
-        <div className="text-danger">{error.email}</div>
-        <br />
-        <br />
-
-        <input
-          type="text"
-          value={props.password}
-          placeholder="Enter your Password"
-          onChange={handleChangePassword}
-        ></input>
-        <div className="text-danger">{error.password}</div>
-        <br />
-        <br />
-
-        <Button variant="outline-warning" onClick={validate}>
-          Register
-        </Button>
-
-        <br />
-        <br />
-
-        <Button variant="link" onClick={handleLogBtn}>
-          Already have an account ? Go to Login Page
-        </Button>
-
-        <br />
-        <br />
-
-        {setBtn && <Route path="/" exact strict />}
-
-        <Footer />
-      </div> */}
     </div>
   );
 }
