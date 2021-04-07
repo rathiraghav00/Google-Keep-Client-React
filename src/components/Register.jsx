@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-const URL = "https://fierce-shore-80067.herokuapp.com/";
+const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 
 function Register(props) {
   const [btn, setBtn] = useState(0);
@@ -14,21 +14,6 @@ function Register(props) {
     email: "",
     password: "",
   });
-
-  // useEffect(() => {
-  //   console.log("Inside Register Page");
-  //   // localStorage.setItem("loginPage", 1);
-  //   // localStorage.setItem("regPage", 0);
-  //   // localStorage.setItem("keepPage", 0);
-  //   localStorage.setItem("email", props.email);
-  //   localStorage.setItem("password", props.password);
-  // }, [
-  //   props.loginPage,
-  //   props.regPage,
-  //   props.keepPage,
-  //   props.password,
-  //   props.email,
-  // ]);
 
   function handleChangeEmail(event) {
     const { value } = event.target;

@@ -5,7 +5,7 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
 import { Button } from "bootstrap";
-const URL = "https://fierce-shore-80067.herokuapp.com/";
+const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 
 function Keep(props) {
   const [notes, setNotes] = useState([]);
@@ -31,11 +31,18 @@ function Keep(props) {
 
   useEffect(() => {
     getAllNotes();
+    props.setLoginPage(0);
+    props.setRegPage(0);
+    props.setKeepPage(1);
   }, []);
 
   function addNote(newNote) {
     console.log("Yeh hai new note neeche");
     console.log(newNote);
+
+    console.log("Login", props.loginPage);
+    console.log("Reg", props.regPage);
+    console.log("Keep", props.keepPage);
 
     axios
       .post(URL + "notes", {
