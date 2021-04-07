@@ -89,8 +89,11 @@ function Keep(props) {
       <div>
         <button
           type="submit"
-          style={{ align: "left", margin: "1.5%" }}
-          className="form-control col-lg-2 col-md-3 col-sm-4 btn btn-outline-warning rounded submit px-3"
+          style={{
+            align: "left",
+            margin: "1.5%",
+          }}
+          className="form-control col-lg-2 col-md-3 col-sm-4 btn btn-outline-primary rounded submit px-3"
           align="right"
           onClick={handleClickLogout}
         >
