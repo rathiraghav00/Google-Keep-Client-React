@@ -3,7 +3,15 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer>
-      <p>
+      <p
+        style={{
+          position: "fixed",
+          bottom: "0",
+          width: "100%",
+          height: "0.5crem",
+          display: "relative",
+        }}
+      >
         Copyright ⓒ {year}.
         <a href={process.env.REACT_APP_FB_LINK}> Please leave a feedback</a>
       </p>
