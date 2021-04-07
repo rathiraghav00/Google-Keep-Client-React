@@ -1,10 +1,8 @@
-import { Divider } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 
 function Login(props) {
@@ -55,9 +53,7 @@ function Login(props) {
         } else if (response.data.password) {
           alert("Wrong Password !!");
         } else {
-          alert(
-            "Email ID doesnot exist in the database. Please click on the Register Button"
-          );
+          alert("Email ID does not exist in the database. Please check again");
         }
       })
       .catch((error) => {

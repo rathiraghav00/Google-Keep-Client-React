@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
-import { Button } from "bootstrap";
 const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 
 function Keep(props) {
