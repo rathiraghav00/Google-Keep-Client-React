@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
-import { Button } from "bootstrap";
 const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 
 function Keep(props) {
@@ -37,7 +36,6 @@ function Keep(props) {
   }, []);
 
   function addNote(newNote) {
-    console.log("Yeh hai new note neeche");
     console.log(newNote);
 
     console.log("Login", props.loginPage);
@@ -51,16 +49,12 @@ function Keep(props) {
         content: newNote.content,
       })
       .then((response) => {
-        console.log("yeh hai add note ka response");
         console.log(response);
         getAllNotes();
-        // setNotes(response.data);
       })
       .catch((error) => {
         console.log("Error : ", error);
       });
-
-    console.log("post requuest hogayi");
   }
 
   function deleteNote(uniqueid) {

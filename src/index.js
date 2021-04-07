@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import App from "./components/App";
 require("dotenv").config();
 
-// localStorage.clear();
-
 ReactDOM.render(
   <div>
     <Router>

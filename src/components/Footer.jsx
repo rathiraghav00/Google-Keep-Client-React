@@ -1,7 +1,4 @@
 import React from "react";
-
-console.log(process.env.REACT_APP_FB_LINK);
-
 function Footer() {
   const year = new Date().getFullYear();
   return (
