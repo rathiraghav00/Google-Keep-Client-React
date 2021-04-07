@@ -90,17 +90,17 @@ function Keep(props) {
         <button
           type="submit"
           style={{
-            align: "left",
+            align: "right",
             margin: "1.5%",
           }}
-          className="form-control col-lg-2 col-md-3 col-sm-4 btn btn-outline-primary rounded submit px-3"
+          className="form-control col-lg-2 col-md-3 col-sm-4 btn btn-outline-primary float-right rounded submit px-3"
           align="right"
           onClick={handleClickLogout}
         >
           Logout
         </button>
-        <CreateArea onAdd={addNote} />
       </div>
+      <CreateArea onAdd={addNote} />
 
       {notes.map((noteItem, index) => {
         return (
