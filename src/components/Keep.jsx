@@ -110,7 +110,14 @@ function Keep(props) {
           />
         );
       })}
-      <Footer />
+      <Footer
+        style={{
+          position: "absolute",
+          bottom: "0",
+          width: "100%",
+          height: "2.5rem",
+        }}
+      />
     </div>
   );
 }
