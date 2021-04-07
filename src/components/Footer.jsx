@@ -8,7 +8,7 @@ function Footer() {
           position: "fixed",
           bottom: "0",
           width: "100%",
-          height: "0.5crem",
+          height: "0.5rem",
           display: "relative",
         }}
       >
