@@ -10,9 +10,6 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 function Login(props) {
   useEffect(() => {
     console.log("Inside Login Page");
-    console.log("Login Page", props.loginPage);
-    console.log("Reg Page", props.regPage);
-    console.log("Keep Page", props.keepPage);
   }, []);
 
   const [btn, setBtn] = useState(0);
@@ -40,16 +37,22 @@ function Login(props) {
   function handleChangePassword(event) {
     const { value } = event.target;
     console.log("Password", value);
+
     props.setPassword(value);
-    console.log(value);
+
+    console.log(value, props.password);
+
+    // while (props.password !== value);
 
     localStorage.setItem("loginPage", 1);
     localStorage.setItem("regPage", 0);
     localStorage.setItem("keepPage", 0);
     localStorage.setItem("email", props.email);
-    localStorage.setItem("password", value);
+    localStorage.setItem("password", props.password);
 
-    console.log("New email and password", props.email, value);
+    console.log(value, props.password);
+
+    console.log("New email and password", props.email, props.password);
   }
 
   function handleClick(event) {

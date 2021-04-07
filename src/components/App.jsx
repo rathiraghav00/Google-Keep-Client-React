@@ -23,25 +23,23 @@ function App() {
   useEffect(() => {
     console.log("Inside App.jsx - UseEffect");
 
-    let l = parseInt(localStorage.getItem("loginPage")) || 1;
+    let l = parseInt(localStorage.getItem("loginPage")) || 0;
     setLoginPage(l);
-    console.log("Login Page", l);
+    // console.log("Login Page", l);
 
     let r = parseInt(localStorage.getItem("regPage")) || 0;
     setRegPage(r);
-    console.log("Reg Page", r);
+    // console.log("Reg Page", r);
 
     let k = parseInt(localStorage.getItem("keepPage")) || 0;
     setKeepPage(k);
-    console.log("Keep Page", k);
+    // console.log("Keep Page", k);
 
     let em = localStorage.getItem("email") || "";
     setEmail(em);
-    console.log("Email", em);
 
     let pass = localStorage.getItem("password") || "";
     setPassword(pass);
-    console.log("Password", pass);
 
     if (r == 0 && k == 0) {
       l = 1;
@@ -56,6 +54,8 @@ function App() {
     console.log("Login Page", loginPage);
     console.log("Reg Page", regPage);
     console.log("Keep Page", keepPage);
+    console.log("Password", pass);
+    console.log("Email", em);
   }, []);
 
   return (
