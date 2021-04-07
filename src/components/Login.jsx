@@ -38,11 +38,14 @@ function Login(props) {
     const { value } = event.target;
     console.log("Password", value);
 
+    localStorage.setItem("password", value);
     props.setPassword(value);
 
     console.log(value, props.password);
 
-    // while (props.password !== value);
+    while (props.password !== value) {
+      console.log("wait");
+    }
 
     localStorage.setItem("loginPage", 1);
     localStorage.setItem("regPage", 0);

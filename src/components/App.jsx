@@ -5,7 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Keep from "./Keep";
 
-// localStorage.clear();
+localStorage.clear();
 
 function App() {
   const [loginPage, setLoginPage] = useState(0);
@@ -56,7 +56,7 @@ function App() {
     console.log("Keep Page", keepPage);
     console.log("Password", pass);
     console.log("Email", em);
-  }, []);
+  }, [loginPage, regPage, keepPage, password, email]);
 
   return (
     <div>
