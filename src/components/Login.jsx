@@ -10,7 +10,18 @@ const URL = "https://fierce-shore-80067.herokuapp.com/";
 function Login(props) {
   useEffect(() => {
     console.log("Inside Login Page");
-  }, []);
+    // localStorage.setItem("loginPage", 1);
+    // localStorage.setItem("regPage", 0);
+    // localStorage.setItem("keepPage", 0);
+    localStorage.setItem("email", props.email);
+    localStorage.setItem("password", props.password);
+  }, [
+    props.loginPage,
+    props.regPage,
+    props.keepPage,
+    props.password,
+    props.email,
+  ]);
 
   const [btn, setBtn] = useState(0);
 
@@ -25,37 +36,15 @@ function Login(props) {
 
     props.setEmail(value);
 
-    localStorage.setItem("loginPage", 1);
-    localStorage.setItem("regPage", 0);
-    localStorage.setItem("keepPage", 0);
-    localStorage.setItem("email", value);
-    localStorage.setItem("password", props.password);
-
-    console.log("New email and password", value, props.password);
+    console.log("Update value and email", value, props.email);
   }
 
   function handleChangePassword(event) {
     const { value } = event.target;
     console.log("Password", value);
-
-    localStorage.setItem("password", value);
     props.setPassword(value);
 
-    console.log(value, props.password);
-
-    while (props.password !== value) {
-      console.log("wait");
-    }
-
-    localStorage.setItem("loginPage", 1);
-    localStorage.setItem("regPage", 0);
-    localStorage.setItem("keepPage", 0);
-    localStorage.setItem("email", props.email);
-    localStorage.setItem("password", props.password);
-
-    console.log(value, props.password);
-
-    console.log("New email and password", props.email, props.password);
+    console.log("Update value and password", value, props.password);
   }
 
   function handleClick(event) {
@@ -96,8 +85,14 @@ function Login(props) {
     props.setKeepPage(0);
     props.setLoginPage(0);
     props.setRegPage(1);
+
+    localStorage.setItem("loginPage", 0);
+    localStorage.setItem("regPage", 1);
+    localStorage.setItem("keepPage", 0);
+
     props.setEmail("");
     props.setPassword("");
+
     setBtn(1);
 
     console.log("Going to Registration Page");

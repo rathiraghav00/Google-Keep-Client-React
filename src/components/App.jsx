@@ -5,7 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Keep from "./Keep";
 
-localStorage.clear();
+// localStorage.clear();
 
 function App() {
   const [loginPage, setLoginPage] = useState(0);
