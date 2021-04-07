@@ -41,6 +41,7 @@ function CreateArea(props) {
         {isExpanded && (
           <input
             name="title"
+            autocomplete="off"
             onChange={handleChange}
             value={note.title}
             placeholder="Title"
@@ -49,6 +50,7 @@ function CreateArea(props) {
 
         <textarea
           name="content"
+          autocomplete="off"
           onClick={expand}
           onChange={handleChange}
           value={note.content}

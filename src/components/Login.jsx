@@ -139,6 +139,7 @@ function Login(props) {
                       type="text"
                       className="form-control rounded-left"
                       required
+                      autocomplete="off"
                       value={props.email}
                       placeholder="Enter your Email ID"
                       onChange={handleChangeEmail}
@@ -151,6 +152,7 @@ function Login(props) {
                       type="password"
                       className="form-control rounded-left"
                       required
+                      autocomplete="off"
                       value={props.password}
                       placeholder="Enter your password"
                       onChange={handleChangePassword}

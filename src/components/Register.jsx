@@ -145,6 +145,7 @@ function Register(props) {
                     <input
                       type="text"
                       className="form-control rounded-left"
+                      autocomplete="off"
                       required
                       value={props.email}
                       placeholder="Enter your Email ID"
@@ -159,6 +160,7 @@ function Register(props) {
                       className="form-control rounded-left"
                       required
                       value={props.password}
+                      autocomplete="off"
                       placeholder="Enter your password"
                       onChange={handleChangePassword}
                     />
