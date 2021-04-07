@@ -72,28 +72,38 @@ function Keep(props) {
       });
   }
 
-  // function handleClickLogout(event) {
-  //   event.preventDefault();
-  //   props.setKeepPage(0);
-  //   props.setLoginPage(1);
-  //   props.setRegPage(0);
-  //   props.setEmail("");
-  //   props.setPassword("");
-  // }
+  function handleClickLogout(event) {
+    event.preventDefault();
+    props.setKeepPage(0);
+    props.setLoginPage(1);
+    props.setRegPage(0);
+    props.setEmail("");
+    props.setPassword("");
+    localStorage.clear();
+  }
 
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
-      {/* <div className="form-group">
-        <Button
+      <div>
+        <CreateArea onAdd={addNote} />
+        <button
           type="submit"
-          //className="form-control btn btn-outline-primary rounded submit px-3"
+          className="form-control col-md-7 col-lg-5 btn btn-outline-primary rounded submit px-3"
+          align="right"
           onClick={handleClickLogout}
         >
           Logout
-        </Button>
-      </div> */}
+        </button>
+      </div>
+
+      {/* <Button
+        type="submit"
+        //className="form-control btn btn-outline-primary rounded submit px-3"
+        onClick={handleClickLogout}
+      >
+        Logout
+      </Button> */}
       {notes.map((noteItem, index) => {
         return (
           <Note

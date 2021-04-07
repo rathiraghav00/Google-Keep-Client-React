@@ -5,8 +5,6 @@ import Login from "./Login";
 import Register from "./Register";
 import Keep from "./Keep";
 
-// localStorage.clear();
-
 function App() {
   let l = parseInt(localStorage.getItem("loginPage")) || 0;
   let r = parseInt(localStorage.getItem("regPage")) || 0;

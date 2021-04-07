@@ -5,7 +5,10 @@ function Footer() {
   return (
     <footer>
       <p>
-        Copyright ⓒ {year}. Please leave a feedback at rathi.raghav00@gmail.com
+        Copyright ⓒ {year}.
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSffDJqB2tpa3MTmyeL15oVpfERTvYy1nl-GhQ7z-Fz4_yEuDg/viewform?vc=0&c=0&w=1&flr=0&gxids=7628">
+          Please leave a feedback
+        </a>
       </p>
     </footer>
   );
