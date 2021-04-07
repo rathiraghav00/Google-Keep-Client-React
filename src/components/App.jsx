@@ -8,11 +8,23 @@ import Keep from "./Keep";
 // localStorage.clear();
 
 function App() {
-  const [loginPage, setLoginPage] = useState(0);
-  const [regPage, setRegPage] = useState(0);
-  const [keepPage, setKeepPage] = useState(0);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  let l = parseInt(localStorage.getItem("loginPage")) || 0;
+  let r = parseInt(localStorage.getItem("regPage")) || 0;
+  let k = parseInt(localStorage.getItem("keepPage")) || 0;
+  let em = localStorage.getItem("email") || "";
+  let pass = localStorage.getItem("password") || "";
+
+  if (r == 0 && k == 0) {
+    l = 1;
+  } else {
+    l = 0;
+  }
+
+  const [loginPage, setLoginPage] = useState(l);
+  const [regPage, setRegPage] = useState(r);
+  const [keepPage, setKeepPage] = useState(k);
+  const [email, setEmail] = useState(em);
+  const [password, setPassword] = useState(pass);
 
   // localStorage.setItem("loginPage", loginPage);
   // localStorage.setItem("regPage", regPage);
@@ -23,39 +35,17 @@ function App() {
   useEffect(() => {
     console.log("Inside App.jsx - UseEffect");
 
-    let l = parseInt(localStorage.getItem("loginPage")) || 0;
-    setLoginPage(l);
-    // console.log("Login Page", l);
-
-    let r = parseInt(localStorage.getItem("regPage")) || 0;
-    setRegPage(r);
-    // console.log("Reg Page", r);
-
-    let k = parseInt(localStorage.getItem("keepPage")) || 0;
-    setKeepPage(k);
-    // console.log("Keep Page", k);
-
-    let em = localStorage.getItem("email") || "";
-    setEmail(em);
-
-    let pass = localStorage.getItem("password") || "";
-    setPassword(pass);
-
-    if (r == 0 && k == 0) {
-      l = 1;
-    } else {
-      l = 0;
-    }
-
-    setLoginPage(l);
-
-    console.log("Login Page", l);
+    localStorage.setItem("loginPage", loginPage);
+    localStorage.setItem("regPage", regPage);
+    localStorage.setItem("keepPage", keepPage);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
 
     console.log("Login Page", loginPage);
     console.log("Reg Page", regPage);
     console.log("Keep Page", keepPage);
-    console.log("Password", pass);
-    console.log("Email", em);
+    console.log("Password", password);
+    console.log("Email", email);
   }, [loginPage, regPage, keepPage, password, email]);
 
   return (
