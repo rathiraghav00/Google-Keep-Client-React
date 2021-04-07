@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
+import { Button } from "bootstrap";
 const URL = "https://fierce-shore-80067.herokuapp.com/";
 
 function Keep(props) {
@@ -71,10 +72,28 @@ function Keep(props) {
       });
   }
 
+  // function handleClickLogout(event) {
+  //   event.preventDefault();
+  //   props.setKeepPage(0);
+  //   props.setLoginPage(1);
+  //   props.setRegPage(0);
+  //   props.setEmail("");
+  //   props.setPassword("");
+  // }
+
   return (
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
+      {/* <div className="form-group">
+        <Button
+          type="submit"
+          //className="form-control btn btn-outline-primary rounded submit px-3"
+          onClick={handleClickLogout}
+        >
+          Logout
+        </Button>
+      </div> */}
       {notes.map((noteItem, index) => {
         return (
           <Note
