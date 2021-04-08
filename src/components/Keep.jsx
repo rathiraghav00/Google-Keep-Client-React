@@ -10,7 +10,6 @@ function Keep(props) {
   const [notes, setNotes] = useState([]);
 
   const getAllNotes = () => {
-    console.log(props.email);
     axios
       .get(URL + "notes/" + props.email)
       .then((response) => {
@@ -19,13 +18,9 @@ function Keep(props) {
 
         for (var i in json_data) resultfinal.push(json_data[i]);
 
-        console.log(resultfinal);
-
         setNotes(resultfinal);
       })
-      .catch((error) => {
-        console.log("Error : ", error);
-      });
+      .catch((error) => {});
   };
 
   useEffect(() => {
@@ -36,12 +31,6 @@ function Keep(props) {
   }, []);
 
   function addNote(newNote) {
-    console.log(newNote);
-
-    console.log("Login", props.loginPage);
-    console.log("Reg", props.regPage);
-    console.log("Keep", props.keepPage);
-
     axios
       .post(URL + "notes", {
         email_id: props.email,
@@ -49,12 +38,9 @@ function Keep(props) {
         content: newNote.content,
       })
       .then((response) => {
-        console.log(response);
         getAllNotes();
       })
-      .catch((error) => {
-        console.log("Error : ", error);
-      });
+      .catch((error) => {});
   }
 
   function deleteNote(uniqueid) {
@@ -65,12 +51,9 @@ function Keep(props) {
         },
       })
       .then((response) => {
-        console.log(" Suucessfully deleted ", uniqueid, response);
         getAllNotes();
       })
-      .catch((error) => {
-        console.log("Error : ", error);
-      });
+      .catch((error) => {});
   }
 
   function handleClickLogout(event) {

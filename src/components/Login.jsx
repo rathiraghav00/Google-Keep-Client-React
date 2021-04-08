@@ -16,23 +16,20 @@ function Login(props) {
 
   function handleChangeEmail(event) {
     const { value } = event.target;
-    console.log("Email", value);
+
     props.setEmail(value);
     props.setLoginPage(1);
     props.setRegPage(0);
     props.setKeepPage(0);
-    console.log("Update value and email", value, props.email);
   }
 
   function handleChangePassword(event) {
     const { value } = event.target;
-    console.log("Password", value);
+
     props.setPassword(value);
     props.setLoginPage(1);
     props.setRegPage(0);
     props.setKeepPage(0);
-
-    console.log("Update value and password", value, props.password);
   }
 
   function handleClick(event) {
@@ -40,15 +37,11 @@ function Login(props) {
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
-        console.log(response.data);
-
         if (response.data.password === props.password) {
           props.setKeepPage(props.email);
           props.setLoginPage(0);
           props.setRegPage(0);
           props.setPassword("");
-
-          console.log("User Authenticated");
 
           setBtn(1);
         } else if (response.data.password) {
@@ -59,9 +52,7 @@ function Login(props) {
           );
         }
       })
-      .catch((error) => {
-        console.log("Error : ", error);
-      });
+      .catch((error) => {});
   }
 
   function handleRegBtn(event) {
@@ -72,13 +63,10 @@ function Login(props) {
     props.setEmail("");
     props.setPassword("");
     setBtn(1);
-
-    console.log("Going to Registration Page");
   }
 
   function validate(event) {
     event.preventDefault();
-    console.log("Login Button Clicked");
 
     let email = props.email;
     let password = props.password;
@@ -106,8 +94,6 @@ function Login(props) {
         errors["email"] = "Please enter a valid email address.";
       }
     }
-
-    console.log(errors, email, password);
 
     setError(errors);
 

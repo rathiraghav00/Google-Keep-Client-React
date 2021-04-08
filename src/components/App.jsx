@@ -24,19 +24,11 @@ function App() {
   const [password, setPassword] = useState(pass);
 
   useEffect(() => {
-    console.log("Inside App.jsx - UseEffect");
-
     localStorage.setItem("loginPage", loginPage);
     localStorage.setItem("regPage", regPage);
     localStorage.setItem("keepPage", keepPage);
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
-
-    console.log("Login Page", loginPage);
-    console.log("Reg Page", regPage);
-    console.log("Keep Page", keepPage);
-    console.log("Password", password);
-    console.log("Email", email);
   }, [loginPage, regPage, keepPage, password, email]);
 
   return (

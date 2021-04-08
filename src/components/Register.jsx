@@ -15,7 +15,7 @@ function Register(props) {
 
   function handleChangeEmail(event) {
     const { value } = event.target;
-    console.log("Email", value);
+
     props.setEmail(value);
     props.setLoginPage(0);
     props.setRegPage(1);
@@ -24,7 +24,7 @@ function Register(props) {
 
   function handleChangePassword(event) {
     const { value } = event.target;
-    console.log("Password", value);
+
     props.setPassword(value);
     props.setLoginPage(0);
     props.setRegPage(1);
@@ -37,8 +37,6 @@ function Register(props) {
     axios
       .get(URL + "auth/" + props.email)
       .then((response) => {
-        console.log(response.data);
-
         if (response.data.password) {
           alert(
             "Email ID already exists in the database. Please Login or select another Email ID"
@@ -50,26 +48,19 @@ function Register(props) {
               password: props.password,
             })
             .then((response) => {
-              console.log("Successfully added new user");
-
               props.setKeepPage(props.email);
               props.setLoginPage(0);
               props.setRegPage(0);
               props.setPassword("");
 
-              console.log("User Added");
-
               setBtn(1);
             })
             .catch((error) => {
-              console.log("Error : ", error);
               alert("There was some error while registering you!");
             });
         }
       })
-      .catch((error) => {
-        console.log("Error : ", error);
-      });
+      .catch((error) => {});
   }
 
   function validate(event) {
@@ -102,8 +93,6 @@ function Register(props) {
       }
     }
 
-    console.log(errors, email, password);
-
     setError(errors);
 
     if (isValid) handleClick(event);
@@ -119,8 +108,6 @@ function Register(props) {
     props.setEmail("");
     props.setPassword("");
     setBtn(1);
-
-    console.log("Going to Login Page");
   }
 
   return (
