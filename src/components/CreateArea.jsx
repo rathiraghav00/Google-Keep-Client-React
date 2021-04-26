@@ -8,16 +8,16 @@ function CreateArea(props) {
 
   const [note, setNote] = useState({
     title: "",
-    content: ""
+    content: "",
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setNote(prevNote => {
+    setNote((prevNote) => {
       return {
         ...prevNote,
-        [name]: value
+        [name]: value,
       };
     });
   }
@@ -26,7 +26,7 @@ function CreateArea(props) {
     props.onAdd(note);
     setNote({
       title: "",
-      content: ""
+      content: "",
     });
     event.preventDefault();
   }
@@ -41,6 +41,7 @@ function CreateArea(props) {
         {isExpanded && (
           <input
             name="title"
+            autocomplete="off"
             onChange={handleChange}
             value={note.title}
             placeholder="Title"
@@ -49,6 +50,7 @@ function CreateArea(props) {
 
         <textarea
           name="content"
+          autocomplete="off"
           onClick={expand}
           onChange={handleChange}
           value={note.content}

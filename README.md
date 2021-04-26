@@ -4,8 +4,10 @@ https://infinite-brushlands-70873.herokuapp.com
 
 Todo:
 
-1. Email validation
-2. Add a whole lot of CSS and Bootstrap
-3. Logout Button
-4. Add env file
+what if there are 100 notes
+how will it look on the screen??
+
+small screen size
+manage css
+
 5. If someone plays with api, can he access my db?? How to solve that

@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Keep from "./Keep";
 
 function App() {
-  const [loginPage, setLoginPage] = useState(1);
-  const [regPage, setRegPage] = useState(0);
-  const [keepPage, setKeepPage] = useState(0);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  let l = parseInt(localStorage.getItem("loginPage")) || 0;
+  let r = parseInt(localStorage.getItem("regPage")) || 0;
+  let k = parseInt(localStorage.getItem("keepPage")) || 0;
+  let em = localStorage.getItem("email") || "";
+  let pass = localStorage.getItem("password") || "";
+
+  if (r == 0 && k == 0) {
+    l = 1;
+  } else {
+    l = 0;
+  }
+
+  const [loginPage, setLoginPage] = useState(l);
+  const [regPage, setRegPage] = useState(r);
+  const [keepPage, setKeepPage] = useState(k);
+  const [email, setEmail] = useState(em);
+  const [password, setPassword] = useState(pass);
+
+  useEffect(() => {
+    localStorage.setItem("loginPage", loginPage);
+    localStorage.setItem("regPage", regPage);
+    localStorage.setItem("keepPage", keepPage);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+  }, [loginPage, regPage, keepPage, password, email]);
 
   return (
     <div>
