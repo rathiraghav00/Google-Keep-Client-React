@@ -1,13 +1,8 @@
-# GKC
+# Google Keep Clone - Front End - React
 
-https://infinite-brushlands-70873.herokuapp.com
+Deployed at : https://infinite-brushlands-70873.herokuapp.com
+Google Keep Clone Server - https://github.com/rathiraghav00/Google-Keep-Clone-Server
 
-Todo:
 
-what if there are 100 notes
-how will it look on the screen??
 
-small screen size
-manage css
 
-5. If someone plays with api, can he access my db?? How to solve that
