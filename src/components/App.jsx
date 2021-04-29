@@ -33,44 +33,37 @@ function App() {
 
   return (
     <div>
-      <Route
-        path="/"
-        exact
-        strict
-        render={({ match }) =>
-          loginPage ? (
-            <Login
-              email={email}
-              password={password}
-              setLoginPage={setLoginPage}
-              setRegPage={setRegPage}
-              setKeepPage={setKeepPage}
-              setEmail={setEmail}
-              setPassword={setPassword}
-            />
-          ) : regPage ? (
-            <Register
-              email={email}
-              password={password}
-              setLoginPage={setLoginPage}
-              setRegPage={setRegPage}
-              setKeepPage={setKeepPage}
-              setEmail={setEmail}
-              setPassword={setPassword}
-            />
-          ) : (
-            <Keep
-              email={email}
-              password={password}
-              setLoginPage={setLoginPage}
-              setRegPage={setRegPage}
-              setKeepPage={setKeepPage}
-              setEmail={setEmail}
-              setPassword={setPassword}
-            />
-          )
-        }
-      />
+      {loginPage ? (
+        <Login
+          email={email}
+          password={password}
+          setLoginPage={setLoginPage}
+          setRegPage={setRegPage}
+          setKeepPage={setKeepPage}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      ) : regPage ? (
+        <Register
+          email={email}
+          password={password}
+          setLoginPage={setLoginPage}
+          setRegPage={setRegPage}
+          setKeepPage={setKeepPage}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      ) : (
+        <Keep
+          email={email}
+          password={password}
+          setLoginPage={setLoginPage}
+          setRegPage={setRegPage}
+          setKeepPage={setKeepPage}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      )}
     </div>
   );
 }
