@@ -14,11 +14,6 @@ function Login(props) {
     password: "",
   });
 
-  useEffect(() => {
-    console.log("Email props", props.email);
-    console.log("Password", props.password, props.password);
-  }, [props.email, props.password]);
-
   function handleChangeEmail(event) {
     const { value } = event.target;
 
@@ -32,7 +27,6 @@ function Login(props) {
     const { value } = event.target;
 
     props.setPassword(value);
-
   }
 
   function handleClick(event) {
