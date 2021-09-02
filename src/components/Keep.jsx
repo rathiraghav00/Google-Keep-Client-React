@@ -9,10 +9,6 @@ const URL = process.env.REACT_APP_API_ADDRESS_NAME;
 function Keep(props) {
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    getAllNotes();
-  }, []);
-
   const getAllNotes = () => {
     axios
       .get(URL + "notes/" + props.email)
